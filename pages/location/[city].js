@@ -1,5 +1,7 @@
 import React from 'react';
 import cities from '../../lib/city.list.json';
+import Head from 'next/head';
+import TodaysWeather from '../../components/TodaysWeather';
 
 export async function getServerSideProps(context) {
   const city = getCity(context.params.city);
@@ -68,7 +70,15 @@ const getHourlyWeather = (hourlyData) => {
 export default function City({hourlyWeather, currentWeather, dailyWeather, city}) {
   return (
     <div>
-      <h1>City Page</h1>
+      <Head>
+        <title>{city.name} Weather - Next Weather App</title>
+      </Head>
+
+      <div className="page-wrapper">
+        <div className="container">
+          <TodaysWeather city={city} weather={dailyWeather[0]} />
+        </div>
+      </div>
     </div>
   )
 }
