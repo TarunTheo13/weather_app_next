@@ -74,7 +74,7 @@ export default function City({hourlyWeather, currentWeather, dailyWeather, city,
       <div className="page-wrapper">
         <div className="container">
           <TodaysWeather city={city} weather={dailyWeather[0]} timezone={timezone} />
-          <HourlyWeather hourlyweather={hourlyWeather} timezone={timezone} />
+          <HourlyWeather hourlyWeather={hourlyWeather} timezone={timezone} />
         </div>
       </div>
     </div>
